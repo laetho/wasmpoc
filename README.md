@@ -25,3 +25,16 @@ way around.
 # Inspiration
 
 - https://github.com/agnivade/shimmer
+
+# Usage
+
+## Building
+    cd wasmpoc
+    ./buildall.sh
+    
+## Running
+
+    cd cmd/server
+    ./server
+    
+http://localhost:9090
