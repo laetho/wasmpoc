@@ -57,10 +57,12 @@ func genGraph() string {
     start := "digraph {"
     stop := "}"
     graph := start
-    for i := int64(1); i <= Nodes; i++ {
+    for i := int64(1); i <= 100; i++ {
         rand.Seed(time.Now().UnixNano())
-        edge := rand.Int63n(Nodes-0+1)
+        edge := rand.Int63n(1000-0+1)
         graph += strconv.FormatInt(i,10)+" -> "+ strconv.FormatInt(edge, 10)+";\n"
+        edge2 := rand.Int63n(1000-0+1)
+        graph += strconv.FormatInt(edge,10)+" -> "+ strconv.FormatInt(edge2, 10)+";\n"
     }
     graph += stop
     return graph

@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <script src="wasm_exec.js"></script>
@@ -10,10 +10,11 @@
             go.run(result.instance);
         });
     </script>
+    <title>WASM Research</title>
 </head>
 <body>
 <textarea id="data" style="display:none;"></textarea>
-<div id="graph" style="border: 1px solid #c0c0c0;">
+<div id="graph" style="border: 1px solid #c0c0c0;" onclick="updateGraph()">
 </div>
 <script type="text/javascript">
     // create a network
@@ -29,22 +30,7 @@
     var data = {}
     var network = new vis.Network(container, data, options);
 
-    $("#draw").click(draw);
 
-    $("a.example").click(function (event) {
-        var url = $(event.target).data("url");
-        $.get(url)
-            .done(function (dotData) {
-                $("#data").val(dotData);
-                draw();
-            })
-            .fail(function () {
-                $("#error").html(
-                    "Error: Cannot fetch the example data because of security restrictions in JavaScript. Run the example from a server instead of as a local file to resolve this problem. Alternatively, you can copy/paste the data of DOT graphs manually in the textarea below."
-                );
-                resize();
-            });
-    });
 
     $(window).resize(resize);
     $(window).load(draw);
